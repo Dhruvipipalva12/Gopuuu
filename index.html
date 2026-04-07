@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>10 Years of Us 💜</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@300;400;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- =============================================
+       BACKGROUND BLOBS (always behind everything)
+  ============================================= -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <!-- Floating emoji particles (JS spawns them) -->
+  <div id="particles" aria-hidden="true"></div>
+
+
+  <!-- =============================================
+       MUSIC BUTTON (fixed, always visible)
+  ============================================= -->
+  <button class="music-btn" id="musicBtn" title="Toggle music">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <!--
+    REPLACE: Put your .mp3 file at /assets/music/song.mp3
+  -->
+  <audio id="bgAudio" loop>
+    <source src="assets/music/song.mp3" type="audio/mpeg"/>
+  </audio>
+
+
+  <!-- =============================================
+       BOTTOM NAVIGATION BAR
+  ============================================= -->
+  <nav class="bottom-nav" id="bottomNav">
+    <button class="nav-btn" data-page="home"     onclick="goTo('home')">
+      <span>🏠</span><small>Home</small>
+    </button>
+    <button class="nav-btn" data-page="memories" onclick="goTo('memories')">
+      <span>📸</span><small>Memories</small>
+    </button>
+    <button class="nav-btn" data-page="quotes"   onclick="goTo('quotes')">
+      <span>💬</span><small>Quotes</small>
+    </button>
+    <button class="nav-btn" data-page="letters"  onclick="goTo('letters')">
+      <span>💌</span><small>Letters</small>
+    </button>
+    <button class="nav-btn" data-page="surprise" onclick="goTo('surprise')">
+      <span>🎁</span><small>Surprise</small>
+    </button>
+  </nav>
+
+
+  <!-- =============================================
+       PAGES WRAPPER
+  ============================================= -->
+  <main id="app">
+
+
+    <!-- ──────────────────────────────────────
+         PAGE: HOME
+    ────────────────────────────────────── -->
+    <section id="page-home" class="page active">
+      <div class="home-center">
+
+        <p class="home-tag">✦ since 24 june 2016 ✦</p>
+
+        <h1 class="home-title">
+          10 Years of<br/>
+          <span class="grad-text">Friendship</span>
+          <span class="heart-icon">❤️</span>
+        </h1>
+
+        <p class="home-sub">a whole decade of you &amp; me 🌸</p>
+
+        <!-- REPLACE: Update button text if you want -->
+        <button class="btn-enter" onclick="goTo('memories')">
+          Enter Our World ✨
+        </button>
+
+        <!-- Quick nav pills -->
+        <div class="pill-row">
+          <button class="pill" onclick="goTo('memories')">📸 Memories</button>
+          <button class="pill" onclick="goTo('quotes')">💬 Quotes</button>
+          <button class="pill" onclick="goTo('letters')">💌 Letters</button>
+          <button class="pill" onclick="goTo('surprise')">🎁 Surprise</button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────
+         PAGE: MEMORIES
+    ────────────────────────────────────── -->
+    <section id="page-memories" class="page">
+
+      <div class="page-header">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <h2 class="page-title">Our <span class="grad-text">Memories</span> 📸</h2>
+        <p class="page-desc">click any photo to open it 💜</p>
+      </div>
+
+      <!--
+        ================================================
+        GALLERY GRID
+        REPLACE: Change src paths to your actual images
+        All images go in /assets/images/
+        Use any filename — just update the src below
+        Add data-cap="your caption" for each photo
+        ================================================
+      -->
+      <div class="gallery" id="gallery">
+
+        <img class="g-img tall"  src="assets/images/image1.jpg"  data-cap="the beginning 🥹" alt="memory"/>
+        <img class="g-img"       src="assets/images/image2.jpg"  data-cap="pure chaos 😂" alt="memory"/>
+        <img class="g-img"       src="assets/images/image3.jpg"  data-cap="golden hour ☀️" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image4.jpg"  data-cap="always smiling 💕" alt="memory"/>
+        <img class="g-img"       src="assets/images/image5.jpg"  data-cap="same brain cell 👯" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image6.jpg"  data-cap="2017 glow up ✨" alt="memory"/>
+        <img class="g-img"       src="assets/images/image7.jpg"  data-cap="snack run 🍕" alt="memory"/>
+        <img class="g-img"       src="assets/images/image8.jpg"  data-cap="no context 💀" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image9.jpg"  data-cap="we ate this look 💅" alt="memory"/>
+        <img class="g-img"       src="assets/images/image10.jpg" data-cap="explorers 🗺️" alt="memory"/>
+        <img class="g-img"       src="assets/images/image11.jpg" data-cap="2018 era 🎬" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image12.jpg" data-cap="core memory 💭" alt="memory"/>
+        <img class="g-img"       src="assets/images/image13.jpg" data-cap="we were unwell 😭" alt="memory"/>
+        <img class="g-img"       src="assets/images/image14.jpg" data-cap="royalty 👑" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image15.jpg" data-cap="my fav photo 🥰" alt="memory"/>
+        <img class="g-img"       src="assets/images/image16.jpg" data-cap="night owl 🌙" alt="memory"/>
+        <img class="g-img"       src="assets/images/image17.jpg" data-cap="soft era 🌸" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image18.jpg" data-cap="sealed forever 🙈" alt="memory"/>
+        <img class="g-img"       src="assets/images/image19.jpg" data-cap="pure serotonin 💛" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image20.jpg" data-cap="2019 best year 🎉" alt="memory"/>
+        <img class="g-img"       src="assets/images/image21.jpg" data-cap="vibes only ✅" alt="memory"/>
+        <img class="g-img"       src="assets/images/image22.jpg" data-cap="survived 2020 💪" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image23.jpg" data-cap="distance? nope 💻" alt="memory"/>
+        <img class="g-img"       src="assets/images/image24.jpg" data-cap="comeback 🦋" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image25.jpg" data-cap="bookmark forever 🥹" alt="memory"/>
+        <img class="g-img"       src="assets/images/image26.jpg" data-cap="slayed 💅" alt="memory"/>
+        <img class="g-img"       src="assets/images/image27.jpg" data-cap="foodies 🍜" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image28.jpg" data-cap="happy tears 😭" alt="memory"/>
+        <img class="g-img"       src="assets/images/image29.jpg" data-cap="home is a person 🫂" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image30.jpg" data-cap="2022 glow up 🚀" alt="memory"/>
+        <img class="g-img"       src="assets/images/image31.jpg" data-cap="unexpected magic 💖" alt="memory"/>
+        <img class="g-img"       src="assets/images/image32.jpg" data-cap="wallpaper worthy 🌅" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image33.jpg" data-cap="we make it fun 😌" alt="memory"/>
+        <img class="g-img"       src="assets/images/image34.jpg" data-cap="same wavelength 🔥" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image35.jpg" data-cap="2023 best chapter 🌈" alt="memory"/>
+        <img class="g-img"       src="assets/images/image36.jpg" data-cap="crying laughing 😭😂" alt="memory"/>
+        <img class="g-img"       src="assets/images/image37.jpg" data-cap="unmatched duo 👑" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image38.jpg" data-cap="free therapy 💆" alt="memory"/>
+        <img class="g-img"       src="assets/images/image39.jpg" data-cap="speaks for itself 🤍" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image40.jpg" data-cap="still THAT duo 💪" alt="memory"/>
+        <img class="g-img"       src="assets/images/image41.jpg" data-cap="fav human 🥰" alt="memory"/>
+        <img class="g-img"       src="assets/images/image42.jpg" data-cap="main character 🎪" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image43.jpg" data-cap="we WON ✨" alt="memory"/>
+        <img class="g-img"       src="assets/images/image44.jpg" data-cap="adventure 🌍" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image45.jpg" data-cap="safe place 🤍" alt="memory"/>
+        <img class="g-img"       src="assets/images/image46.jpg" data-cap="happy tears 😭" alt="memory"/>
+        <img class="g-img"       src="assets/images/image47.jpg" data-cap="2025 era 🌟" alt="memory"/>
+        <img class="g-img tall"  src="assets/images/image48.jpg" data-cap="unchanged 💕" alt="memory"/>
+        <img class="g-img"       src="assets/images/image49.jpg" data-cap="decade done 🏆" alt="memory"/>
+        <img class="g-img wide"  src="assets/images/image50.jpg" data-cap="just beginning ✦" alt="memory"/>
+
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────
+         PAGE: QUOTES
+    ────────────────────────────────────── -->
+    <section id="page-quotes" class="page">
+
+      <div class="page-header">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <h2 class="page-title">Quotes <span class="grad-text">for Us</span> 💬</h2>
+      </div>
+
+      <div class="quotes-list">
+
+        <!--
+          REPLACE: Update quote text and the note below each one
+          Keep it to 2–5 quotes max
+        -->
+
+        <div class="q-card">
+          <span class="q-mark">"</span>
+          <p class="q-text">We didn't realize we were making memories,<br/>we were just having fun.</p>
+          <span class="q-note">— that's literally us 🥹</span>
+        </div>
+
+        <div class="q-card">
+          <span class="q-mark">"</span>
+          <p class="q-text">No matter how serious life gets, you need that one person you can be completely stupid with.</p>
+          <span class="q-note">— congratulations, it's you 🎉</span>
+        </div>
+
+        <div class="q-card">
+          <span class="q-mark">"</span>
+          <p class="q-text">Ten years. And I'd choose you again. Every single time. Without a second thought.</p>
+          <span class="q-note">— just know that 🥺💗</span>
+        </div>
+
+        <div class="q-card">
+          <span class="q-mark">"</span>
+          <p class="q-text">Here's to the nights that turned into mornings, and the friends that turned into family.</p>
+          <span class="q-note">— you are my family 💜</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────
+         PAGE: LETTERS
+    ────────────────────────────────────── -->
+    <section id="page-letters" class="page">
+
+      <div class="page-header">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <h2 class="page-title">Letters <span class="grad-text">for You</span> 💌</h2>
+      </div>
+
+      <div class="letters-list">
+
+        <!--
+          REPLACE: Update dates, "to" lines, letter body, and sign-off
+          Both letters are fully visible and scroll if long
+        -->
+
+        <!-- Letter 1 -->
+        <div class="letter-card">
+          <div class="letter-top">
+            <span class="letter-icon">💌</span>
+            <div>
+              <p class="letter-date">June 24, 2016</p>
+              <p class="letter-to">to my new best friend</p>
+            </div>
+          </div>
+          <div class="letter-body">
+You know what's funny?
+I never imagined that one random day in April would change my whole life.
+
+But that's exactly what you did.
+
+You walked in, made yourself right at home in my heart, and honestly —
+I'm so glad you never left. 🌸
+
+Ten years of you is the best thing that has ever happened to me.
+Here's to a hundred more. 💕
+
+Bestest best wishes to you for archeving what you want in your life and i know you will 
+i will supprot you in every condition of your life whether it's good or bad 💖
+
+Keep this private !! 
+As people are not too good in this world but  such you are really blessing for me !!
+Everyone broking heart even God also but i have trust on you that you will never 🌺
+
+Thank you thank you thank you so mucchhhh PURV To support her whenever she needs and make her life more beautiful !!
+
+No more to say !! 
+Because if i want to write for you that will never stop so this only !! 🎀
+Hope you Like this one 💌🐼💖
+
+And Sorry for if i hurting you or i have been done any mistake that's you can't tell me. 
+
+just overthinker freind's wishes and thank you !!💕
+          </div>
+          <p class="letter-sign">— with all my love, your very lucky friend 💕</p>
+        </div>
+
+        <!-- Letter 2 -->
+        <div class="letter-card">
+          <div class="letter-top">
+            <span class="letter-icon">🌸</span>
+            <div>
+              <p class="letter-date">June 24, 2026</p>
+              <p class="letter-to">to forever &amp; beyond</p>
+            </div>
+          </div>
+          <div class="letter-body">
+Ten years done. A whole entire decade of us.
+
+And here's the thing — I am not even close to done with you.
+
+There are still so many more adventures waiting. So many more late nights, more ridiculous inside jokes, more memories that haven't happened yet.
+
+I choose you for every single one of them. Loudly. Without hesitation. Always.
+
+You are my favourite human on this planet. The one who makes the world feel softer and funnier and so much better just by being in it.
+
+Here's to the next ten. And the ten after that. 🧡
+
+Forever and always — no take-backs.
+          </div>
+          <p class="letter-sign">— Love u always, your best friend 🌸</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────────
+         PAGE: SURPRISE
+    ────────────────────────────────────── -->
+    <section id="page-surprise" class="page">
+
+      <div class="page-header">
+        <button class="back-btn" onclick="goTo('home')">← Home</button>
+        <h2 class="page-title">A <span class="grad-text">Surprise</span> 🎁</h2>
+      </div>
+
+      <div class="surprise-center">
+
+        <!-- Before click -->
+        <div id="giftBox">
+          <div class="gift-emoji" id="giftEmoji">🎁</div>
+          <p class="gift-hint">tap the gift 👆</p>
+        </div>
+
+        <!-- After click — hidden until triggered -->
+        <div class="surprise-reveal" id="surpriseReveal">
+          <div class="surprise-panda">🐼</div>
+          <!--
+            REPLACE: Update the headline and message below
+          -->
+          <h3 class="surprise-hl">
+            Love u always,<br/>
+            my dear <span class="grad-text">Pandaa!</span>
+          </h3>
+          <p class="surprise-msg">
+            Ten years of you is the greatest gift I never saw coming.
+            You are my favourite person, my safe place,
+            and my biggest reason to smile. 🌸
+            <br/><br/>
+            This tiny website is a small thank you
+            for simply existing in my life. 💕
+          </p>
+          <button class="btn-enter small" id="replayBtn">🎉 Again!</button>
+        </div>
+
+      </div>
+
+      <!-- Confetti canvas (JS draws here) -->
+      <canvas id="confettiCanvas"></canvas>
+      <!-- Flying hearts (JS injects here) -->
+      <div id="heartsLayer"></div>
+
+    </section>
+
+
+  </main><!-- /app -->
+
+
+  <!-- =============================================
+       LIGHTBOX — image viewer
+       NOTE: This lives OUTSIDE #app so it is never
+       clipped or blurred by any parent element.
+       The image is sharp, centered, fullscreen.
+  ============================================= -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+
+    <!-- Dark overlay — click to close -->
+    <div id="lbOverlay"></div>
+
+    <!-- The actual image — NEVER blurred -->
+    <img id="lbImg" src="" alt="memory preview"/>
+
+    <!-- Caption -->
+    <p id="lbCap"></p>
+
+    <!-- Close button -->
+    <button id="lbClose" aria-label="Close">✕</button>
+
+    <!-- Prev / Next -->
+    <button id="lbPrev" aria-label="Previous">‹</button>
+    <button id="lbNext" aria-label="Next">›</button>
+
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
